@@ -1,0 +1,10 @@
+osoba(jan, 25, kino).
+osoba(anna, 30, podróże).
+osoba(marcin, 28, książki).
+osoba(kasia, 22, sport).
+osoba(marek, 35, muzyka).
+
+% Reguła porównująca wiek dwóch osób
+starsza(X, Y) :- osoba(X, WiekX, _), osoba(Y, WiekY, _), WiekX > WiekY.
+mlodsza(X, Y) :- osoba(X, WiekX, _), osoba(Y, WiekY, _), WiekX < WiekY.
+rowny_wiek(X, Y) :- osoba(X, WiekX, _), osoba(Y, WiekY, _), WiekX =:= WiekY.

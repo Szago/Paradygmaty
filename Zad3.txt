@@ -1,0 +1,20 @@
+
+osoba(ireneusz, null, null, mezczyzna, 50).
+osoba(elzbieta, null, null, kobieta, 48).
+osoba(jakub, ireneusz, elzbieta, mezczyzna, 21).
+
+
+% Reguła sprawdzająca, czy dwie osoby są rodzeństwem.
+rodzenstwo(X, Y) :- osoba(X, Ojciec, Matka, _, _), osoba(Y, Ojciec, Matka, _, _), X \= Y.
+
+% Reguła sprawdzająca, czy X jest bratem Y.
+brat(X, Y) :- osoba(X, Ojciec, Matka, mezczyzna, _), osoba(Y, Ojciec, Matka, _, _), X \= Y.
+
+% Reguła sprawdzająca, czy X jest siostrą Y.
+siostra(X, Y) :- osoba(X, Ojciec, Matka, kobieta, _), osoba(Y, Ojciec, Matka, _, _), X \= Y.
+
+% Reguła sprawdzająca, czy X jest synem Y.
+syn(X, Y) :- osoba(X, Y, _, mezczyzna, _).
+
+% Reguła sprawdzająca, czy X jest córką Y.
+corka(X, Y) :- osoba(X, _, Y, kobieta, _).
